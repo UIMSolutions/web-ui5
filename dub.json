@@ -1,0 +1,17 @@
+{
+	"name": "uim-ui5",
+	"authors": [ "UI Manufaktur Team" ],
+	"description": "D Library for OpenUI5 and SAPUI5",
+	"copyright": "Copyright © 2019, UI Manufaktur UG",
+	"license": "Apache 2.0",
+	"targetType": "library",
+	"dependencies": {
+		"vibe-d:data": "==0.8.5",
+		"uim-core": "~>0.19.6",
+		"uim-oop": "~>0.19.6",
+		"uim-web": "~>0.19.6",
+		"uim-html": "~>0.19.6",
+		"uim-json": "~>0.19.6",
+		"uim-javascript": "~>0.19.6"
+	}
+}
