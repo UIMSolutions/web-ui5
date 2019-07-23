@@ -16,14 +16,14 @@ class DUI5App {
 	mixin(DataProperty!("string", "title"));
 	mixin(DataProperty!("string", "description"));
 
-	mixin(Property!("DUI5Index", "idx"));
-	mixin(Property!("DUI5Component", "component"));
-	mixin(Property!("DUI5Manifest", "manifest"));
-	mixin(Property!("DUI5Test", "test"));
+	mixin(OProperty!("DUI5Index", "idx"));
+	mixin(OProperty!("DUI5Component", "component"));
+	mixin(OProperty!("DUI5Manifest", "manifest"));
+	mixin(OProperty!("DUI5Test", "test"));
 
-	mixin(Property!("DUI5Controller[string]", "controllers"));
-	mixin(Property!("DUI5Fragment[string]", "fragments"));
-	mixin(Property!("DUI5View[string]", "views"));
+	mixin(OProperty!("DUI5Controller[string]", "controllers"));
+	mixin(OProperty!("DUI5Fragment[string]", "fragments"));
+	mixin(OProperty!("DUI5View[string]", "views"));
 
 	void opIndexAssign(T)(T newValue, string propName) {
 		if (propName in properties) properties[propName].value = newValue; 
@@ -34,7 +34,7 @@ class DUI5App {
 		return null;
 	}
 
-	auto loadFrom(Database db, UUID anId) {
+	/* auto loadFrom(Database db, UUID anId) {
 		foreach(row; db.execute("SELECT * FROM apps WHERE (id = '%s')".format(anId)).cached) {
 			loadFrom(db, row);
 		}
@@ -62,7 +62,7 @@ class DUI5App {
 			return this;
 		}
 		return null;
-	}
+	} */
 
 	auto exportToPath(string targetPath) {
 		if (targetPath) {

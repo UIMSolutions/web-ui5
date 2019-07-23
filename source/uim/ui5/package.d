@@ -6,7 +6,6 @@ public import std.conv;
 public import std.file;
 public import std.uuid;
 
-public import d2sqlite3;
 public import uim.core;
 public import uim.oop;
 
@@ -61,7 +60,7 @@ public:
 	this(Datatypes aDatatype, double aValue, bool aKey = false) { this(aDatatype); value = aValue; isNull = false; isKey = aKey; }
 	this(Datatypes aDatatype, string aValue, bool aKey = false) { this(aDatatype); value = aValue; isNull = false; isKey = aKey; }
 	this(Datatypes aDatatype, UUID aValue, bool aKey = false) { this(aDatatype); value = aValue; isNull = false; isKey = aKey; }
-	this(Datatypes aDatatype, ColumnData aValue, bool aKey = false) { this(aDatatype); value = aValue; isNull = false; isKey = aKey; }
+	// this(Datatypes aDatatype, ColumnData aValue, bool aKey = false) { this(aDatatype); value = aValue; isNull = false; isKey = aKey; }
 
 	alias toString this;
 
@@ -111,7 +110,7 @@ public:
 		}
 	}
 
-	@property void value(ColumnData newValue) {
+	/* @property void value(ColumnData newValue) {
 		final switch(_datatype) {
 			case Datatypes.BOOL: bValue = newValue.as!bool; isNull = false; break;
 			case Datatypes.INT: iValue = newValue.as!int; isNull = false; break;
@@ -119,7 +118,7 @@ public:
 			case Datatypes.STRING: sValue = newValue.as!string; isNull = false; break;
 			case Datatypes.ID: uValue = UUID(newValue.as!string); isNull = false; break;
 		}
-	}
+	} */
 
 	string toJSON() {
 		if (isNull) return "NULL";
@@ -169,7 +168,7 @@ auto Data(Datatypes aDatatype, int aValue, bool aKey = false) { return new DData
 auto Data(Datatypes aDatatype, double aValue, bool aKey = false) { return new DData(aDatatype, aValue, aKey); }
 auto Data(Datatypes aDatatype, string aValue, bool aKey = false) { return new DData(aDatatype, aValue, aKey); }
 auto Data(Datatypes aDatatype, UUID aValue, bool aKey = false) { return new DData(aDatatype, aValue, aKey); }
-auto Data(Datatypes aDatatype, ColumnData aValue, bool aKey = false) { return new DData(aDatatype, aValue, aKey); }
+// auto Data(Datatypes aDatatype, ColumnData aValue, bool aKey = false) { return new DData(aDatatype, aValue, aKey); }
 
 
 enum Datatypes {

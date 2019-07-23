@@ -12,7 +12,7 @@ class DUI5Controller : DUI5AppObj {
 
 	mixin(DataProperty!("STRING", "name"));
 	mixin(DataProperty!("STRING", "extend"));
-	mixin(Property!("string[string]", "dependencies"));
+	mixin(OProperty!("string[string]", "dependencies"));
 
 	string fullName() { return ((_app) ? _app.name~".controller."~name:name); }
 

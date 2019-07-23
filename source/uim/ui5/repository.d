@@ -6,7 +6,7 @@ import uim.ui5;
 class DUI5Repository {
 	this() {}
 
-	DUI5App loadAppFromDB(Database db, string name) {
+	/* DUI5App loadAppFromDB(Database db, string name) {
 		if (auto count = db.execute("SELECT count(*) FROM apps WHERE (name = '%s')".format(name)).oneValue!long) {
 			// one or more apps with the same name -> different versions 
 			auto maxVersion = db.execute("SELECT max(versionno) FROM apps WHERE (name = '%s')".format(name)).oneValue!long; 
@@ -35,14 +35,14 @@ class DUI5Repository {
 			}		
 		}
 		return null;
-	}
+	} */
 }
 auto UI5Repository() { return new DUI5Repository; }
 
 unittest {
-	UI5Repository.loadAppFromDB(Database("ui5.db"), "uim.app.test");
+/*	UI5Repository.loadAppFromDB(Database("ui5.db"), "uim.app.test");
 	UI5Repository.loadAppFromDB(Database("ui5.db"), "uim.app.test", "0.0.1");
 	auto app = UI5Repository.loadAppFromDB(Database("ui5.db"), UUID("433748c8-4590-4d1f-9af5-780be03eab14"));
-
+*/
 	writeln(app);
 }

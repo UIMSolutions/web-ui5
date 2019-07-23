@@ -8,13 +8,14 @@ class DUI5Manifest  : DUI5AppObj {
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
-	O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
+	/* O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
 		if (row) {
 			return cast(O)this;
 		}
 		return null;
-	}
+	} */ 
 
+	/*
 	string opIndex(string name) {
 		switch(name) {
 			case "_version": return `"1.5.0"`;
@@ -41,7 +42,7 @@ class DUI5Manifest  : DUI5AppObj {
 						}
 					}
 				}
-			}`;
+			}`; break;
 			case "sap.ui": return `{
 				"technology": "UI5",
 				"icons": {
@@ -61,7 +62,7 @@ class DUI5Manifest  : DUI5AppObj {
 					"sap_hcb",
 					"sap_belize"
 				]
-			}`;
+			}`; break;
 			case "sap.ui5": return `{
 				"_version": "1.1.0",
 				"rootView": {
@@ -158,18 +159,18 @@ class DUI5Manifest  : DUI5AppObj {
 						}
 					]
 				}
-			}`;
+			}`; break;
 			case "sap.platform.hcp": `{
 				"uri": "webapp",
 				"_version": "1.1.0"				
-			}`;
+			}`; break;
 			default: return "";
 		}
-	}
+	} */
 	override string toString() {
 		string[] values;
 		values ~= "_version: %s".format(this["_version"]);
-		values ~= "sap.app": %s".format(this["sap.app""]);
+		values ~= "sap.app: %s".format(this["sap.app"]);
 		values ~= "sap.ui: %s".format(this["sap.ui"]);
 		values ~= "sap.ui5: %s".format(this["sap.ui5"]);
 		values ~= "sap.platform.hcp: %s".format(this["sap.platform.hcp"]);

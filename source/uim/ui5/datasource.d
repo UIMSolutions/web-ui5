@@ -12,17 +12,17 @@ class DUI5DataSource : DUI5AppObj {
 
 	mixin(DataProperty!("STRING", "extend"));
 	mixin(DataProperty!("STRING", "name"));
-	mixin(Property!("string[string]", "dependencies"));
+	mixin(OProperty!("string[string]", "dependencies"));
 
 	string fullName() { return ((_app) ? _app.name~".controller."~name:name); }
 
-	O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
+	/* O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
 		if (row) {
 			return cast(O)this;
 		}
 		return null;
 	}
-
+	*/ 
 	override string toString() {
 		string[] names;
 		string[] modules;

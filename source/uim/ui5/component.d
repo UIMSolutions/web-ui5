@@ -8,7 +8,7 @@ class DUI5Component : DUI5AppObj {
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
-	mixin(Property!("string[string]", "libs")); 
+	mixin(OProperty!("string[string]", "libs")); 
 
 	O loadFrom(this O)(Database db, UUID appid) {
 		foreach(row; db.execute("SELECT * FROM components WHERE (id = '%s')".format(appid)).cached) {

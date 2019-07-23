@@ -8,10 +8,11 @@ class DUI5View : DUI5AppObj {
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
-	mixin(Property!("string", "name"));
-	mixin(Property!("DUI5Controller", "controller"));
-	mixin(Property!("string[string]", "nameSpaces"));
+	mixin(OProperty!("string", "name"));
+	mixin(OProperty!("DUI5Controller", "controller"));
+	mixin(OProperty!("string[string]", "nameSpaces"));
 
+/*
 	O loadFrom(this O)(Database db, UUID appid, string name) {
 		foreach(row; db.execute("SELECT * FROM fragments WHERE (id = '%s') AND (name = '%s')".format(id, name)).cached) {
 			return loadFrom(db, row);
@@ -24,7 +25,7 @@ class DUI5View : DUI5AppObj {
 			return cast(O)this;
 		}
 		return null;
-	}
+	} */
 
 	string xmlView() {
 		string[] ns;

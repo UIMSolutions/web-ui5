@@ -8,19 +8,20 @@ class DUI5Project  : DUI5AppObj {
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
+/*
 	string opIndex(string name) {
 		switch(name) {
-		case "projectType": return `[
-		    "sap.watt.uitools.ide.fiori",
-		    "com.watt.common.builder.sapui5clientbuild"
-		  ]`;
-		  case  "build": return `{
-		    "targetFolder": "dist",
-		    "sourceFolder": "webapp",
-		    "buildRequired": false,
-		    "lastBuildDateTime": "Mon, 27 Mar 2017 14:44:14 GMT"
-		  }`;
-		  case "generation": return `[
+			case "projectType": return `[
+				"sap.watt.uitools.ide.fiori",
+				"com.watt.common.builder.sapui5clientbuild"
+		  	]`;
+			case  "build": return `{
+				"targetFolder": "dist",
+				"sourceFolder": "webapp",
+				"buildRequired": false,
+				"lastBuildDateTime": "Mon, 27 Mar 2017 14:44:14 GMT"
+			}`;
+			case "generation": return `[
 		    {
 		      "templateId": "ui5template.basicSAPUI5ApplicationProject",
 		      "templateVersion": "1.40.12",
@@ -74,4 +75,5 @@ class DUI5Project  : DUI5AppObj {
 		  default: return "";
 		}
 	}
+	*/
 }
