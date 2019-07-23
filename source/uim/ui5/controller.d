@@ -26,20 +26,16 @@ class DUI5Controller : DUI5AppObj {
 	override string toString() {
 		string[] names;
 		string[] modules;
-		foreach(name, modul; dependencies) {
+		foreach(name; dependencies.keys.sort.array) {
 			names ~= "%s".format(name);
-			modules ~= "'%s'".format(modul);
+			modules ~= "'%s'".format(dependencies[name]);
 		}
 
 		string c = (content) ? content.toString : ""; 
-		return `sap.ui.define([
-	`~modules.join(",")~`
-], function (`~names.join(",")~`) {
-	"use strict";
-	return `~extend~`.extend("`~fullName~`", {
-		`~c~`
-	});
-});`;
+		return jsFCall("sap.ui.define", [
+			jsArray(modules), 
+			jsFunc(names, `"use strict";return `~extend~jsOCall("extend", [fullName, jsBlock(c)])~`;`)
+			]~";");
 	}
 }
 auto UI5Controller() { return new DUI5Controller; }

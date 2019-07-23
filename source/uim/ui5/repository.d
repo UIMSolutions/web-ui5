@@ -44,5 +44,5 @@ unittest {
 	UI5Repository.loadAppFromDB(Database("ui5.db"), "uim.app.test", "0.0.1");
 	auto app = UI5Repository.loadAppFromDB(Database("ui5.db"), UUID("433748c8-4590-4d1f-9af5-780be03eab14"));
 */
-	writeln(app);
+//		writeln(app);
 }

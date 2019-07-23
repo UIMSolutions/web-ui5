@@ -8,6 +8,7 @@ public import std.uuid;
 
 public import uim.core;
 public import uim.oop;
+public import uim.javascript;
 
 public import uim.ui5._index;
 public import uim.ui5.app;
@@ -187,4 +188,26 @@ unittest {
 
 	assert(Data("000").toString == "000");
 	assert(Data("111").toString == "111");
+}
+
+/* Defines a JavaScript module with its ID, its dependencies and a module export value or factory. */
+string ui5Define(string[] modules, string[] parameters, string content) {
+	return jsFCall("sap.ui.define", [
+		jsArray(modules), 
+		jsFunc(parameters, content)
+	])~`;`;
+} 
+unittest {
+	assert(ui5Define(["a","b"], ["a","b"], "return x;") == "sap.ui.define([a,b],function(a,b){return x;});");
+}
+
+/* Defines a JavaScript module with its ID, its dependencies and a module export value or factory. */
+string ui5Require(string[] modules, string[] parameters, string content) {
+	return jsFCall("sap.ui.require", [
+		jsArray(modules), 
+		jsFunc(parameters, content)
+	])~`;`;
+} 
+unittest {
+	assert(ui5Require(["a","b"], ["a","b"], "return x;") == "sap.ui.define([a,b],function(a,b){return x;});");
 }
