@@ -211,3 +211,10 @@ string ui5Require(string[] modules, string[] parameters, string content) {
 unittest {
 	assert(ui5Require(["a","b"], ["a","b"], "return x;") == "sap.ui.define([a,b],function(a,b){return x;});");
 }
+
+string ui5Extend(string rootClass, string newClass, string[string] properties) {
+	return `%s.extend(%s,%s);`.format(rootClass, newClass, jsObject(properties));
+}
+unittest {
+	/// TODO
+}
