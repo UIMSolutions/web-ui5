@@ -12,14 +12,14 @@ class DUI5AppObj {
 
 	DUI5App _app;
 	@property DUI5App app() { return _app; }
-	@property void app(DUI5App newApp) { _app = newApp; if (_app) appid = _app.id; }
+	@property void app(DUI5App newApp) { _app = newApp; if (_app) _appid = _app.id; }
 
-	mixin(DataProperty!("ID", "appid", true));
-	mixin(DataProperty!("STRING", "content"));
+	mixin(TProperty!("UUID", "appid"));
+	mixin(TProperty!("string", "content"));
 
 	void opIndexAssign(T)(T newValue, string propName) {
 		if (propName in properties) properties[propName].value = newValue; 
-		properties[propName] = new DData("STRING", newValue); 
+		properties[propName] = new DData("string", newValue); 
 	}
 	DData opIndex(string propName) {
 		if (propName in properties) return properties[propName];
@@ -34,7 +34,7 @@ class DUI5AppObj {
 	}
 
 	override string toString() {
-		return (content) ? content.toString : "";
+		return (_content) ? _content : "";
 	}
 	string toJSON() {
 		string[] values;

@@ -34,7 +34,7 @@ class DUI5View : DUI5AppObj {
 			else ns ~= `xmlns="%s"`.format(k);
 		}
 
-		string c = (content) ? content.toString : ""; 
+		string c = (_content) ? _content : ""; 
 		return `<mvc:View controllerName="`~controller.fullName~`" `~ns.join(" ")~`>`
 			~c~
 `</mvc:View>`;
@@ -48,11 +48,15 @@ class DUI5View : DUI5AppObj {
 	string htmlView() {
 		return "";
 	}
+	void request(HTTPServerRequest req, HTTPServerResponse res) {
+		res.writeBody(toString, "text/xml");
+	}
 	override string toString() {
-		return super.toString;
+		return (_content) ? _content : "";
 	}
 }
 auto UI5View() { return new DUI5View; }
+auto UI5View(string someContent) { return new DUI5View(someContent); }
 
 unittest {
 	auto view = UI5View;

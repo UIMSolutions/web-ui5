@@ -31,7 +31,7 @@ class DUI5DataSource : DUI5AppObj {
 			modules ~= "'%s'".format(modul);
 		}
 
-		string c = (content) ? content.toString : ""; 
+		string c = (_content) ? _content : ""; 
 		return `sap.ui.define([
 	`~modules.join(",")~`
 ], function (`~names.join(",")~`) {

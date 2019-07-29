@@ -167,7 +167,7 @@ class DUI5Manifest  : DUI5AppObj {
 			default: return "";
 		}
 	} */
-	override string toString() {
+	/* override string toString() {
 		string[] values;
 		values ~= "_version: %s".format(this["_version"]);
 		values ~= "sap.app: %s".format(this["sap.app"]);
@@ -176,6 +176,12 @@ class DUI5Manifest  : DUI5AppObj {
 		values ~= "sap.platform.hcp: %s".format(this["sap.platform.hcp"]);
 
 		return "{ %s }".format(values.join(","));
+	}*/
+	void request(HTTPServerRequest req, HTTPServerResponse res) {
+		res.writeBody(toString, "text/json");
+	}
+	override string toString() {
+		return (_content) ? _content : "";
 	}
 }
 auto UI5Manifest() { return new DUI5Manifest(); }

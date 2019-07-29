@@ -10,6 +10,7 @@ class DUI5Component : DUI5AppObj {
 
 	mixin(OProperty!("string[string]", "libs")); 
 
+/*
 	O loadFrom(this O)(Database db, UUID appid) {
 		foreach(row; db.execute("SELECT * FROM components WHERE (id = '%s')".format(appid)).cached) {
 			return loadFrom(db, row);
@@ -27,9 +28,16 @@ class DUI5Component : DUI5AppObj {
 			return cast(O)this;
 		}
 		return null;
+	}*/
+
+	void request(HTTPServerRequest req, HTTPServerResponse res) {
+		res.writeBody(toString, "text/json");
+	}
+	override string toString() {
+		return (_content) ? _content : "";
 	}
 
-	override string toString() {
+	/* override string toString() {
 		string[] fullNames;
 		string[] names;
 		foreach(k, v; libs) {
@@ -47,7 +55,7 @@ class DUI5Component : DUI5AppObj {
 					});
 				return Component;
 			});`;
-	}
+	}*/
 }
 auto UI5Component() { return new DUI5Component; }
 

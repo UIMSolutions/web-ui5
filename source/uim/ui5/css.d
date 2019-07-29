@@ -8,11 +8,11 @@ class DUI5Css : DUI5AppObj {
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
-	O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
-		if (row) {
-			return cast(O)this;
-		}
-		return null;
+	void request(HTTPServerRequest req, HTTPServerResponse res) {
+		res.writeBody(toString, "text/css");
+	}
+	override string toString() {
+		return (_content) ? _content : "";
 	}
 }
 auto UI5Css() { return new DUI5Css; }

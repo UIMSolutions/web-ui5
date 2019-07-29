@@ -1,6 +1,5 @@
 ﻿module uim.ui5.app;
 
-import std.uuid;
 import uim.ui5;
 
 class DUI5App {
@@ -8,22 +7,52 @@ class DUI5App {
 
 	this() {}
 
-	mixin(DataProperty!("UUID", "id"));
-	mixin(DataProperty!("string", "name"));
-	mixin(DataProperty!("string", "versionName"));
-	mixin(DataProperty!("int", "versionNo"));
-	mixin(DataProperty!("string", "type"));
-	mixin(DataProperty!("string", "title"));
-	mixin(DataProperty!("string", "description"));
+	mixin(TProperty!("UUID", "id"));
+	mixin(TProperty!("string", "name"));
+	mixin(TProperty!("string", "versionName"));
+	mixin(TProperty!("int", "versionNo"));
+	mixin(TProperty!("string", "type"));
+	mixin(TProperty!("string", "title"));
+	mixin(TProperty!("string", "description"));
+	mixin(TProperty!("string", "rootPath"));
 
-	mixin(OProperty!("DUI5Index", "idx"));
-	mixin(OProperty!("DUI5Component", "component"));
-	mixin(OProperty!("DUI5Manifest", "manifest"));
-	mixin(OProperty!("DUI5Test", "test"));
+	mixin(TProperty!("DUI5Index", "index"));
+	O index(this O)(string newContent) { _index = UI5Index.content(newContent); return cast(O)this; }
 
-	mixin(OProperty!("DUI5Controller[string]", "controllers"));
-	mixin(OProperty!("DUI5Fragment[string]", "fragments"));
-	mixin(OProperty!("DUI5View[string]", "views"));
+	mixin(TProperty!("DUI5Component", "component"));
+	O component(this O)(string newContent) { _component = UI5Component.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Manifest", "manifest"));
+	O manifest(this O)(string newContent) { _manifest = UI5Manifest.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Test", "test"));
+
+	mixin(TProperty!("DUI5Controller[string]", "controllers"));
+	O controller(this O)(string name, string newContent) { _controllers[name] = UI5Controller.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Control[string]", "controls"));
+	O control(this O)(string name, string newContent) { _controls[name] = UI5Control.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Css[string]", "csss"));
+	O css(this O)(string name, string newContent) { _csss[name] = UI5Css.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Data[string]", "datas"));
+	O data(this O)(string name, string newContent) { _datas[name] = UI5Data.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Fragment[string]", "fragments"));
+	O fragment(this O)(string name, string newContent) { _fragments[name] = UI5Fragment.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5I18N[string]", "i18ns"));
+	O i18n(this O)(string name, string newContent) { _i18ns[name] = UI5I18N.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("DUI5Model[string]", "models"));
+	O model(this O)(string name, string newContent) { _models[name] = UI5Model.content(newContent); return cast(O)this; }
+	
+	mixin(TProperty!("DUI5View[string]", "views"));
+	O view(this O)(string name, string newContent) { _views[name] = UI5View.content(newContent); return cast(O)this; }
+
+	mixin(TProperty!("string[string]", "files"));
+	O files(this O)(string name, string path) { _files[name] = path; return cast(O)this; }
 
 	void opIndexAssign(T)(T newValue, string propName) {
 		if (propName in properties) properties[propName].value = newValue; 
@@ -84,7 +113,7 @@ class DUI5App {
 			mkdir(tp~"css");
 			// foreach(c; css) { File(tp~"css/"~c.name~".css", "w").write(c.toString); }
 
-			File(tp~"index.html", "w").write(idx.toString);
+			File(tp~"index.html", "w").write(index.toString);
 			if (component) File(tp~"Component.js", "w").write(component.toString);
 			File(tp~"manifest.json", "w").write(manifest.toString);
 			File(tp~"test.html", "w").write(test.toString);
@@ -92,18 +121,52 @@ class DUI5App {
 		return this;
 	}
 
+	void request(HTTPServerRequest req, HTTPServerResponse res) {
+		auto path = req.path.replace(_rootPath, "");
+		auto pathItems = path.split("/");
+
+		if (pathItems.length > 0) {
+			switch(pathItems[0]) {				
+				case "index":
+				case "index.html": index.request(req, res); break;
+				case "manifest":
+				case "manifest.json": manifest.request(req, res); break;
+				case "Component":
+				case "Component.js": component.request(req, res); break;
+				default: 
+					if (pathItems.length > 1) {
+						auto type = pathItems[0];
+						auto name = pathItems[1..$].join("/");
+						switch(type) {
+							case "controller": if (name in _controllers) _controllers[name].request(req, res); break;
+							case "control": if (name in _controls) _controls[name].request(req, res); break;
+							case "css": if (name in _csss) _csss[name].request(req, res); break;
+							case "fragment": if (name in _fragments) _fragments[name].request(req, res); break;
+							case "i18n": if (name in _i18ns) _i18ns[name].request(req, res); break;
+							case "model": 
+								if (name in _models) _models[name].request(req, res); 
+								if (name in _datas) _datas[name].request(req, res); break;
+							case "view": if (name in _views) _views[name].request(req, res); break;
+							default: break;
+						}
+					}
+				break;
+			}
+		}
+	}
+
 	override string toString() {
 		return `id = %s
 name = %s
 versionName = %s
 versionNo = %s`.format(id, name, versionName, versionNo);
-	}
+	}	
 }
 auto UI5App() { return new DUI5App; }
 
 unittest {
 	auto app = UI5App;
-	app.idx = new DUI5Index(app, `<!DOCTYPE html>
+	app.index = new DUI5Index(app, `<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">

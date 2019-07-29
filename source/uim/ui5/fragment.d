@@ -10,7 +10,7 @@ class DUI5Fragment : DUI5AppObj {
 
 	mixin(DataProperty!("string", "name", true));
 
-	O loadFrom(this O)(Database db, UUID appid, string name) {
+/*	O loadFrom(this O)(Database db, UUID appid, string name) {
 		foreach(row; db.execute("SELECT * FROM fragments WHERE (id = '%s') AND (name = '%s')".format(id, name)).cached) {
 			return loadFrom(db, row);
 		}
@@ -22,6 +22,12 @@ class DUI5Fragment : DUI5AppObj {
 			return cast(O)this;
 		}
 		return null;
+	}*/
+		void request(HTTPServerRequest req, HTTPServerResponse res) {
+		res.writeBody(toString, "text/javascript");
+	}
+	override string toString() {
+		return (_content) ? _content : "";
 	}
 }
 auto UI5Fragment() { return new DUI5Fragment; }

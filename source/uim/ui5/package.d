@@ -1,25 +1,34 @@
 module uim.ui5;
 
+// import from Phobos 
 public import std.stdio;
 public import std.string;
 public import std.conv;
 public import std.file;
 public import std.uuid;
 
+// import from external packages 
+public import vibe.d;
+
+// import from uim packages 
 public import uim.core;
 public import uim.oop;
 public import uim.javascript;
 
-public import uim.ui5._index;
+// import from internal modules 
+public import uim.ui5.index;
 public import uim.ui5.app;
 public import uim.ui5.appobj;
+public import uim.ui5.control;
 public import uim.ui5.controller;
 public import uim.ui5.css;
 public import uim.ui5.component;
+public import uim.ui5.data;
 public import uim.ui5.formatter;
 public import uim.ui5.fragment;
 public import uim.ui5.i18n;
 public import uim.ui5.manifest;
+public import uim.ui5.model;
 public import uim.ui5.repository;
 public import uim.ui5.route;
 public import uim.ui5.routes;

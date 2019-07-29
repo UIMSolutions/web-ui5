@@ -16,14 +16,16 @@ class DUI5Controller : DUI5AppObj {
 
 	string fullName() { return ((_app) ? _app.name~".controller."~name:name); }
 
+	/* 
 	O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
 		if (row) {
 			return cast(O)this;
 		}
 		return null;
 	}
+	*/
 
-	override string toString() {
+	/* override string toString() {
 		string[] names;
 		string[] modules;
 		foreach(name; dependencies.keys.sort.array) {
@@ -31,14 +33,22 @@ class DUI5Controller : DUI5AppObj {
 			modules ~= "'%s'".format(dependencies[name]);
 		}
 
-		string c = (content) ? content.toString : ""; 
+		string c = (_content) ? _content : ""; 
 		return jsFCall("sap.ui.define", [
 			jsArray(modules), 
 			jsFunc(names, `"use strict";return `~extend~jsOCall("extend", [fullName, jsBlock(c)])~`;`)
 			]~";");
+	} */
+
+	void request(HTTPServerRequest req, HTTPServerResponse res) {
+		res.writeBody(toString, "text/javascript");
+	}
+	override string toString() {
+		return (_content) ? _content : "";
 	}
 }
 auto UI5Controller() { return new DUI5Controller; }
+auto UI5Controller(string someContent) { return new DUI5Controller(someContent); }
 
 unittest {
 	writeln("\n Start testing uim.ui5.controller");

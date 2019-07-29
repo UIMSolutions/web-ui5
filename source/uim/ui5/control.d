@@ -1,31 +1,26 @@
-﻿module uim.ui5.i18n;
+﻿module uim.ui5.control;
 
 import uim.ui5;
 
-class DUI5I18N  : DUI5AppObj {
+class DUI5Control : DUI5AppObj {
 	this() { super(); }
 	this(DUI5App myApp) { super(myApp); }
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
-	/*
-	O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
-		if (row) {
-			return cast(O)this;
-		}
-		return null;
-	}
-	*/
+	mixin(DataProperty!("STRING", "name"));
+
+	string fullName() { return ((_app) ? _app.name~".Control."~name:name); }
 
 	void request(HTTPServerRequest req, HTTPServerResponse res) {
-		res.writeBody(toString, "text/plain");
+		res.writeBody(toString, "text/javascript");
 	}
 	override string toString() {
 		return (_content) ? _content : "";
 	}
 }
-auto UI5I18N() { return new DUI5I18N; }
+auto UI5Control() { return new DUI5Control; }
+auto UI5Control(string someContent) { return new DUI5Control(someContent); }
 
 unittest {
-	auto i18n = UI5I18N;
 }
