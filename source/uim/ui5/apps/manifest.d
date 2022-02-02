@@ -1,4 +1,4 @@
-module uim.ui5.manifest;
+module source.uim.ui5.apps.manifest;
 
 import uim.ui5;
 

@@ -1,31 +1,22 @@
-﻿module uim.ui5.i18n;
+﻿module uim.ui5.apps.index;
 
 import uim.ui5;
 
-class DUI5I18N  : DUI5AppObj {
+class DUI5Index : DUI5AppObj {
 	this() { super(); }
 	this(DUI5App myApp) { super(myApp); }
 	this(string someContent) { super(someContent); }
 	this(DUI5App myApp, string someContent) { super(myApp, someContent); }
 
-	/*
-	O loadFrom(this O)(Database db, CachedResults.CachedRow row) {
-		if (row) {
-			return cast(O)this;
-		}
-		return null;
-	}
-	*/
-
 	void request(HTTPServerRequest req, HTTPServerResponse res) {
-		res.writeBody(toString, "text/plain");
+		res.writeBody(toString, "text/html");
 	}
 	override string toString() {
 		return (_content) ? _content : "";
 	}
 }
-auto UI5I18N() { return new DUI5I18N; }
+auto UI5Index() { return new DUI5Index; }
 
 unittest {
-	auto i18n = UI5I18N;
+	auto idx = UI5Index; 
 }

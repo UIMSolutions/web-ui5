@@ -18,18 +18,18 @@ public import uim.json;
 public import uim.html;
 
 // import from internal modules 
-public import uim.ui5.index;
+// public import uim.ui5.index;
 public import uim.ui5.apps;
 public import uim.ui5.appobj;
 public import uim.ui5.control;
-public import uim.ui5.controller;
+// public import uim.ui5.controller;
 public import uim.ui5.css;
 public import uim.ui5.component;
 public import uim.ui5.data;
 public import uim.ui5.formatter;
 public import uim.ui5.fragment;
-public import uim.ui5.i18n;
-public import uim.ui5.manifest;
+// public import uim.ui5.i18n;
+// public import uim.ui5.manifest;
 public import uim.ui5.model;
 public import uim.ui5.repository;
 public import uim.ui5.route;
@@ -37,7 +37,7 @@ public import uim.ui5.routes;
 public import uim.ui5.target;
 public import uim.ui5.targets;
 public import uim.ui5.test;
-public import uim.ui5.view;
+// public import uim.ui5.view;
  
 template DataProperty(string datatype, string name, bool key = false) {
 	const char[] DataProperty = `

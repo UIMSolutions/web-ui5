@@ -1,4 +1,4 @@
-﻿module uim.ui5.view;
+﻿module source.uim.ui5.apps.view;
 
 import uim.ui5;
 

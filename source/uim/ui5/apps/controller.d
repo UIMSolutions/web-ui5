@@ -1,4 +1,4 @@
-﻿module uim.ui5.controller;
+﻿module source.uim.ui5.apps.controller;
 
 import uim.ui5;
 

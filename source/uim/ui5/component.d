@@ -31,7 +31,7 @@ class DUI5Component : DUI5AppObj {
 	}*/
 
 	void request(HTTPServerRequest req, HTTPServerResponse res) {
-		res.writeBody(toString, "text/json");
+		res.writeBody(toString, "text/javascript");
 	}
 	override string toString() {
 		return (_content) ? _content : "";
