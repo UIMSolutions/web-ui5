@@ -1,17 +1,17 @@
 {
 	"name": "uim-ui5",
-	"authors": [ "UI Manufaktur Team" ],
 	"description": "D Library for OpenUI5 and SAPUI5",
-	"copyright": "Copyright © 2019, UI Manufaktur UG",
-	"license": "Apache 2.0",
+	"authors": ["UI Manufaktur Team"],
+	"copyright": "Copyright © 2017-2022, UI Manufaktur UG",
+	"license": "Apache-2.0",
 	"targetType": "library",
 	"dependencies": {
-		"vibe-d": "~>0.9.0"
+		"vibe-d": "~>0.9.4"
 	},
 	"sourcePaths": [
 		"../uim-core",
 		"../uim-oop",
-		"../uim-web",
+		
 		"../uim-css",
 		"../uim-html",
 		"../uim-javascript",
@@ -21,7 +21,7 @@
 	"importPaths": [
 		"../uim-core",
 		"../uim-oop",
-		"../uim-web",
+		
 		"../uim-css",
 		"../uim-html",
 		"../uim-javascript",
