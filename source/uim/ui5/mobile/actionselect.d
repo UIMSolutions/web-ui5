@@ -1,1 +1,1 @@
-module module uim.ui5.mobile.actionselect;
+module uim.ui5.mobile.actionselect;
