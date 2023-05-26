@@ -1,6 +1,6 @@
-﻿module source.uim.ui5.apps.view;
+﻿module source.web.ui5.apps.view;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5View : DUI5AppObj {
 	this() { super(); }

@@ -1,6 +1,6 @@
-﻿module uim.ui5.apps.index;
+﻿module web.ui5.apps.index;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Index : DUI5AppObj {
 	this() { super(); }

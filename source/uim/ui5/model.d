@@ -1,6 +1,6 @@
-﻿module uim.ui5.model;
+﻿module web.ui5.model;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Model : DUI5AppObj {
 	this() { super(); }

@@ -1,6 +1,6 @@
-﻿module uim.ui5.formatter;
+﻿module web.ui5.formatter;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Formatter : DUI5AppObj {
 	this() { super(); }

@@ -1,6 +1,6 @@
-module uim.ui5.target;
+module web.ui5.target;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Target  : DUI5AppObj {
 	this() { super(); }

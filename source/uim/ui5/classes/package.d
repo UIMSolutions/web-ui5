@@ -1,3 +1,3 @@
-module uim.ui5.classes;
+module web.ui5.classes;
 
-import uim.ui5;
+import web.ui5;

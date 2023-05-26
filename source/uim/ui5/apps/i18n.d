@@ -1,6 +1,6 @@
-﻿module source.uim.ui5.apps.i18n;
+﻿module source.web.ui5.apps.i18n;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5I18N  : DUI5AppObj {
 	this() { super(); }

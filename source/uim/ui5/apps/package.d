@@ -1,5 +1,5 @@
-module uim.ui5.apps;
+module web.ui5.apps;
 
-import uim.ui5;
+import web.ui5;
 
-public import uim.ui5.apps.app;
+public import web.ui5.apps.app;

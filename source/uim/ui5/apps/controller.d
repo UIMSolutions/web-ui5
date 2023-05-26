@@ -1,6 +1,6 @@
-﻿module source.uim.ui5.apps.controller;
+﻿module source.web.ui5.apps.controller;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Controller : DUI5AppObj {
 	this() { super(); }
@@ -51,7 +51,7 @@ auto UI5Controller() { return new DUI5Controller; }
 auto UI5Controller(string someContent) { return new DUI5Controller(someContent); }
 
 unittest {
-	writeln("\n Start testing uim.ui5.controller");
+	writeln("\n Start testing web.ui5.controller");
 	auto controller = UI5Controller;
-	writeln("End testing uim.ui5.controller\n");
+	writeln("End testing web.ui5.controller\n");
 }
