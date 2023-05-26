@@ -1,6 +1,6 @@
-﻿module uim.ui5.datasource;
+﻿module web.ui5.datasource;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5DataSource : DUI5AppObj {
 	this() { super(); }

@@ -1,6 +1,6 @@
-module uim.ui5.apps.app;
+module web.ui5.apps.app;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5App : DH5App {
 /*     mixin(XArray!("DUI5Controller", "controllers"));

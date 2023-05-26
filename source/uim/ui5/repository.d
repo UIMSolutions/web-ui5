@@ -1,7 +1,7 @@
-﻿module uim.ui5.repository;
+﻿module web.ui5.repository;
 
 import std.uuid;
-import uim.ui5;
+import web.ui5;
 
 class DUI5Repository {
 	this() {}

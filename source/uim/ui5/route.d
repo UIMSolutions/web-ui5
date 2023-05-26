@@ -1,6 +1,6 @@
-module uim.ui5.route;
+module web.ui5.route;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Route  : DUI5AppObj {
 	this() { super(); }

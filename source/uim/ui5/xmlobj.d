@@ -1,6 +1,6 @@
-﻿module source.uim.ui5.xmlobj;
+﻿module source.web.ui5.xmlobj;
 
-import uim.ui5; 
+import web.ui5; 
 
 class DUI5XmlObj : DUI5AppObj {
 	this() { super(); }

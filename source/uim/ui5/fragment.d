@@ -1,6 +1,6 @@
-﻿module uim.ui5.fragment;
+﻿module web.ui5.fragment;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Fragment : DUI5AppObj {
 	this() { super(); }

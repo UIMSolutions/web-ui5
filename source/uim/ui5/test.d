@@ -1,6 +1,6 @@
-﻿module uim.ui5.test;
+﻿module web.ui5.test;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Test : DUI5AppObj {
 	this() { super(); }

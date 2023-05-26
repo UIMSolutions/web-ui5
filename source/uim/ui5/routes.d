@@ -1,6 +1,6 @@
-module uim.ui5.routes;
+module web.ui5.routes;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5Routes {
 	DUI5Route[] _routes;
