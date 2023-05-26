@@ -1,1 +1,1 @@
-module uim.ui5.factories;
+module web.ui5.factories;

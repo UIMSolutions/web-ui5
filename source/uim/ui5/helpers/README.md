@@ -1,1 +1,1 @@
-# Package 📦 uim.ui5.helpers
+# Package 📦 web.ui5.helpers

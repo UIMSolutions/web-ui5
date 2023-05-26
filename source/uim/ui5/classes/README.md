@@ -1,1 +1,1 @@
-# Package 📦 uim.ui5.classes
+# Package 📦 web.ui5.classes

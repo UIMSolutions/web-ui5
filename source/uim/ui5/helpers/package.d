@@ -1,1 +1,1 @@
-module uim.ui5.helpers;
+module web.ui5.helpers;

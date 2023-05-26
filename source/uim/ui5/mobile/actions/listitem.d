@@ -1,1 +1,1 @@
-module uim.ui5.mobile.actionlistitem;
+module web.ui5.mobile.actionlistitem;

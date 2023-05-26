@@ -1,1 +1,1 @@
-module uim.ui5.tests;
+module web.ui5.tests;

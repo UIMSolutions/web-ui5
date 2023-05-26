@@ -1,1 +1,1 @@
-# Package 📦 uim.ui5.tests
+# Package 📦 web.ui5.tests

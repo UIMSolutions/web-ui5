@@ -1,6 +1,6 @@
-﻿module uim.ui5.appobj;
+﻿module web.ui5.appobj;
 
-import uim.ui5;
+import web.ui5;
 
 class DUI5AppObj {
 	protected DData[string] properties;

@@ -1,1 +1,1 @@
-# Package 📦 uim.ui5.interfaces
+# Package 📦 web.ui5.interfaces

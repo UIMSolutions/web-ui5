@@ -1,1 +1,1 @@
-module uim.ui5.mixins;
+module web.ui5.mixins;
