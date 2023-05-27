@@ -1,0 +1,1 @@
+Displays header, subheader, and a customizable main area in a tile format.
