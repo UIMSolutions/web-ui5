@@ -1,0 +1,1 @@
+module web.ui5.helpers;
