@@ -1,4 +1,4 @@
-# Package 📦 web.ui5.mobile.listitems
+# Package 📦 web.ui5.controls.mobile.listitems
 
 ## Class *DUI5Listitem* (Base class)
 DUI5ListItem contains the base features of all specific list items.

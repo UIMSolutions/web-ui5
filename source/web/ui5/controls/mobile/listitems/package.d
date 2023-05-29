@@ -1,1 +1,1 @@
-module web.ui5.mobile.listitems;
+module web.ui5.controls.mobile.listitems;
